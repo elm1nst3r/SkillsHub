@@ -1,0 +1,17 @@
+{
+  "name": "hairline",
+  "description": "Isometric line figures, built from rounded solids in a single stroke, that answer the pointer. Ships each figure as one self-contained HTML file.",
+  "author": {
+    "name": "Lucas Marques",
+    "url": "https://github.com/lucasmarkes"
+  },
+  "repository": "https://github.com/lucasmarkes/hairline",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "illustration",
+    "isometric",
+    "svg"
+  ],
+  "version": "0.5.1"
+}

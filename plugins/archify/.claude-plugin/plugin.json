@@ -1,0 +1,9 @@
+{
+  "name": "archify",
+  "description": "Validated architecture, workflow, sequence, data-flow, state, ERD, class, tree, timeline and waterfall diagrams as explorable standalone HTML, plus visual PR/diff walkthroughs.",
+  "version": "3.3.0",
+  "author": { "name": "tt-a1i", "url": "https://github.com/tt-a1i" },
+  "repository": "https://github.com/tt-a1i/archify",
+  "license": "Apache-2.0",
+  "keywords": ["diagrams", "architecture", "visualization", "pull-request"]
+}

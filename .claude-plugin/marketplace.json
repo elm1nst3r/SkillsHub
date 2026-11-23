@@ -1,0 +1,29 @@
+{
+  "name": "skillshub",
+  "owner": {
+    "name": "Personal"
+  },
+  "metadata": {
+    "description": "My curated collection of favorite agent skills."
+  },
+  "plugins": [
+    {
+      "name": "hairline",
+      "source": "./plugins/hairline",
+      "description": "Isometric line figures that answer the pointer, as self-contained HTML (hairline-create, hairline-adopt).",
+      "category": "design"
+    },
+    {
+      "name": "archify",
+      "source": "./plugins/archify",
+      "description": "Validated architecture, workflow, sequence, ERD and more as explorable standalone HTML, plus PR walkthrough diagrams (archify, archify-pr).",
+      "category": "design"
+    },
+    {
+      "name": "diagram-design",
+      "source": "./plugins/diagram-design",
+      "description": "Editorial diagrams in your brand as self-contained HTML/SVG; imports draw.io, Mermaid, Excalidraw, PlantUML.",
+      "category": "design"
+    }
+  ]
+}
