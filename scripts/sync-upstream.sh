@@ -30,4 +30,5 @@ for n in "${names[@]}"; do
   tmpj=$(mktemp); jq --arg n "$n" --arg s "$sha" '.[$n].commit=$s' "$ROOT/UPSTREAM.json" > "$tmpj" && mv "$tmpj" "$ROOT/UPSTREAM.json"
   echo "$n -> $sha"
 done
+echo "Rebuilding catalog..."; node "$ROOT/scripts/build-catalog.mjs"
 echo "Review with 'git diff --stat', then commit."

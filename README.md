@@ -30,7 +30,20 @@ scripts/sync-upstream.sh            # all
 scripts/sync-upstream.sh archify    # one
 ```
 
+## Browse and search
+
+Open `site/index.html` in a browser (no server needed). Search by name, summary, tags or full description, and filter by plugin and tag.
+
+Short descriptions, categories and tags live in `catalog/skills.json` (kept separate so upstream syncs never overwrite them). After editing it, rebuild the page data:
+
+```
+node scripts/build-catalog.mjs
+```
+
+CI runs `node scripts/build-catalog.mjs --check`, which fails if a skill has no summary/tags, uses a tag outside `tagGroups`, or `site/catalog.js` is stale.
+
 ## Add a new skill
 
 1. Create `plugins/<name>/.claude-plugin/plugin.json` and `plugins/<name>/skills/<skill>/SKILL.md`.
 2. Add an entry to `.claude-plugin/marketplace.json`.
+3. Add the skill's `category`, `summary` and `tags` to `catalog/skills.json` (add new tags to a `tagGroups` group), then run `node scripts/build-catalog.mjs`.
