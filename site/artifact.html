@@ -1,0 +1,580 @@
+<!-- Generated from site/index.html by scripts/build-catalog.mjs. Do not edit. -->
+<title>SkillsHub</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: filter rail on the left, skill index on the right; stacks to one column on phones. */
+:root {
+  --bg: #f2f4f1;
+  --surface: #ffffff;
+  --fg: #1c2421;
+  --muted: #5b6863;
+  --line: #d8ddd8;
+  --accent: #0e7a6a;
+  --accent-soft: #dcefe9;
+  --mark: #fbe9a6;
+  --ok: #1f7a3a;
+  --warn: #9a6200;
+  --bad: #b3261e;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111614; --surface: #19201d; --fg: #e3e9e6; --muted: #93a19b; --line: #2a3330;
+    --accent: #43c2ab; --accent-soft: #173a33; --mark: #5a4a12;
+    --ok: #5cc97a; --warn: #e0a640; --bad: #f2867c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111614; --surface: #19201d; --fg: #e3e9e6; --muted: #93a19b; --line: #2a3330;
+  --accent: #43c2ab; --accent-soft: #173a33; --mark: #5a4a12;
+  --ok: #5cc97a; --warn: #e0a640; --bad: #f2867c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.55 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+}
+[hidden] { display: none !important; }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+code, .mono { font-family: var(--font-mono); }
+
+/* Header */
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; }
+.brand h1 { margin: 0; font: 600 1.75rem/1.1 var(--font-mono); letter-spacing: -0.02em; }
+.brand h1 span { color: var(--accent); }
+.brand p { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+.cmd {
+  display: flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 6px 6px 6px 12px; font: 0.82rem var(--font-mono);
+}
+.cmd code { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+.copy {
+  flex: none; border: 1px solid var(--line); background: var(--bg); border-radius: 4px;
+  padding: 3px 10px; font: 500 0.75rem var(--font-body); cursor: pointer;
+}
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+.copy.done { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+
+/* Search */
+.search { position: relative; }
+.search input {
+  width: 100%; padding: 14px 44px 14px 16px; font-size: 1.05rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search kbd {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font: 0.75rem var(--font-mono); color: var(--muted); border: 1px solid var(--line);
+  border-radius: 4px; padding: 1px 7px; background: var(--bg);
+}
+
+/* Main grid */
+.main { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 32px; align-items: start; }
+@media (max-width: 760px) { .main { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+
+/* Filters */
+aside, #tag-groups { display: grid; gap: 20px; min-width: 0; }
+@media (min-width: 761px) { aside { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); } }
+.fgroup h2 {
+  margin: 0 0 8px; font: 600 0.7rem var(--font-body); text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); border-radius: 999px;
+  padding: 2px 10px; font: 0.8rem var(--font-mono); line-height: 1.6;
+}
+.chip .n { color: var(--muted); font-size: 0.72rem; font-variant-numeric: tabular-nums; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.8; }
+.chip:disabled { opacity: 0.4; cursor: default; border-color: var(--line); }
+.filters-toggle { display: none; }
+@media (max-width: 760px) {
+  .filters-toggle {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 10px 14px; cursor: pointer; font-weight: 500;
+  }
+  aside.collapsed .fgroup { display: none; }
+}
+
+/* Results */
+.status { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--muted); font-size: 0.88rem; }
+.status strong { color: var(--fg); font-variant-numeric: tabular-nums; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; font-size: 0.88rem; }
+.list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.main > section { min-width: 0; }
+.skill {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0;
+}
+.skill-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.skill-head h3 { margin: 0; font: 600 1.08rem var(--font-mono); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--muted); font-size: 0.8rem; }
+.meta .plugin { font-family: var(--font-mono); }
+.meta .cat { color: var(--accent); font-weight: 500; }
+.summary { margin: 0; max-width: 68ch; }
+.skill .chips .chip { font-size: 0.74rem; padding: 0 8px; }
+mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+details.more { flex: 1 1 auto; min-width: 0; }
+details.more[open] { flex-basis: 100%; order: 2; }
+details.more summary { cursor: pointer; color: var(--muted); font-size: 0.85rem; width: max-content; }
+details.more summary:hover { color: var(--accent); }
+.detail { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding-top: 10px; font-size: 0.9rem; }
+.detail p { margin: 0; max-width: 72ch; }
+.detail dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; margin: 0; }
+.detail dt { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+.detail dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.detail a { color: var(--accent); }
+.empty { border: 1px dashed var(--line); border-radius: var(--radius); padding: 32px 20px; text-align: center; color: var(--muted); }
+/* Submit panel */
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; max-width: 100%; }
+.primary {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  background: var(--accent); color: var(--surface); border: 1px solid var(--accent);
+  border-radius: var(--radius); padding: 7px 14px; font-weight: 600; font-size: 0.88rem;
+}
+.primary:hover { filter: brightness(1.08); }
+.primary:disabled { opacity: 0.55; cursor: default; filter: none; }
+.primary[aria-expanded="true"] { background: var(--surface); color: var(--accent); }
+.badge { background: var(--surface); color: var(--accent); border-radius: 999px; padding: 0 7px; font: 600 0.72rem var(--font-mono); }
+.primary[aria-expanded="true"] .badge { background: var(--accent); color: var(--surface); }
+.panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 28px;
+}
+@media (max-width: 760px) { .panel { grid-template-columns: minmax(0, 1fr); padding: 16px; } }
+.panel h2 { margin: 0 0 4px; font: 600 1rem var(--font-mono); }
+.panel .lead { margin: 0 0 16px; color: var(--muted); font-size: 0.88rem; max-width: 60ch; }
+form { display: grid; gap: 14px; }
+.field { display: grid; gap: 5px; min-width: 0; }
+.field label, .field .label { font-weight: 500; font-size: 0.88rem; }
+.field .opt { color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+.field input, .field textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
+  padding: 8px 10px; font-size: 0.92rem;
+}
+.field textarea { resize: vertical; min-height: 64px; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.field input[aria-invalid="true"] { border-color: var(--bad); }
+.hint { margin: 0; color: var(--muted); font-size: 0.8rem; }
+.hint.err { color: var(--bad); }
+.hint.warn { color: var(--warn); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+#s-tags .chip { font-size: 0.74rem; padding: 0 8px; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+#s-msg { font-size: 0.85rem; }
+#s-msg.ok { color: var(--ok); } #s-msg.err { color: var(--bad); }
+.subs { min-width: 0; }
+.subs ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sub { border-top: 1px solid var(--line); padding-top: 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; min-width: 0; }
+.sub:first-child { border-top: 0; padding-top: 0; }
+.sub-top { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; min-width: 0; }
+.sub-url { font: 0.8rem var(--font-mono); overflow-wrap: anywhere; min-width: 0; color: var(--fg); }
+.sub-meta { color: var(--muted); font-size: 0.78rem; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.sub-result { font-size: 0.82rem; margin: 0; }
+.pill { flex: none; font: 600 0.68rem var(--font-body); text-transform: uppercase; letter-spacing: 0.06em; border-radius: 999px; padding: 1px 8px; border: 1px solid currentColor; }
+.pill.pending { color: var(--warn); } .pill.added { color: var(--ok); } .pill.rejected, .pill.error { color: var(--bad); }
+.unavailable { color: var(--muted); font-size: 0.88rem; margin: 0; }
+.unavailable a { color: var(--accent); }
+footer { color: var(--muted); font-size: 0.8rem; }
+footer code { font-size: 0.78rem; }
+@media (prefers-reduced-motion: no-preference) { .chip, .copy { transition: background-color .12s, border-color .12s, color .12s; } }
+</style>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>Skills<span>Hub</span></h1>
+      <p id="tagline">Loading catalog…</p>
+    </div>
+    <div class="actions">
+      <div class="cmd"><code id="add-cmd">/plugin marketplace add</code><button class="copy" type="button" data-copy-from="add-cmd">Copy</button></div>
+      <button class="primary" type="button" id="submit-toggle" aria-expanded="false" aria-controls="submit-panel">Submit a skill <span class="badge" id="pending-badge" hidden></span></button>
+    </div>
+  </header>
+
+  <section class="panel" id="submit-panel" hidden aria-labelledby="submit-title">
+    <div>
+      <h2 id="submit-title">Submit a skill</h2>
+      <p class="lead">Paste a GitHub link. Claude copies the skill into SkillsHub, adds it to the marketplace and this search, and marks it here when it's done. Leave the optional fields empty and Claude fills them in from the skill.</p>
+      <form id="submit-form" novalidate>
+        <div class="field">
+          <label for="s-url">GitHub link</label>
+          <input id="s-url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://github.com/owner/repo" required>
+          <p class="hint" id="s-url-hint">A repo, or the folder of one skill (…/tree/main/skills/name). Every SKILL.md under it is added.</p>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="s-plugin">Plugin <span class="opt">optional</span></label>
+            <input id="s-plugin" list="dl-plugins" autocomplete="off" spellcheck="false" placeholder="New plugin named after the repo">
+            <datalist id="dl-plugins"></datalist>
+          </div>
+          <div class="field">
+            <label for="s-category">Category <span class="opt">optional</span></label>
+            <input id="s-category" list="dl-categories" autocomplete="off" placeholder="e.g. Diagrams">
+            <datalist id="dl-categories"></datalist>
+          </div>
+        </div>
+        <div class="field">
+          <label for="s-summary">Short description <span class="opt">optional</span></label>
+          <textarea id="s-summary" rows="2" maxlength="240" placeholder="One sentence on what the skill does"></textarea>
+        </div>
+        <div class="field">
+          <span class="label" id="s-tags-label">Tags <span class="opt">optional</span></span>
+          <div class="chips" id="s-tags" role="group" aria-labelledby="s-tags-label"></div>
+          <input id="s-newtags" aria-label="New tags" autocomplete="off" spellcheck="false" placeholder="New tags, comma-separated">
+        </div>
+        <div class="field">
+          <label for="s-notes">Notes for Claude <span class="opt">optional</span></label>
+          <textarea id="s-notes" rows="2" placeholder="e.g. only the pdf skill from this repo"></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="s-submit">Submit skill</button>
+          <span id="s-msg" role="status"></span>
+        </div>
+      </form>
+    </div>
+    <div class="subs">
+      <h2>Submissions</h2>
+      <p class="lead" id="subs-lead">Processed once a day. To process them sooner, ask Claude to “process SkillsHub submissions”.</p>
+      <ol id="subs-list"></ol>
+      <p class="unavailable" id="subs-state">Connecting…</p>
+    </div>
+  </section>
+
+  <div class="search">
+    <input id="q" type="search" aria-label="Search skills" placeholder="Search skills, e.g. “mermaid”, “pull request”, “isometric”" autocomplete="off" spellcheck="false">
+    <kbd aria-hidden="true">/</kbd>
+  </div>
+
+  <div class="main">
+    <aside id="filters" class="collapsed">
+      <button class="filters-toggle" type="button" id="filters-toggle" aria-expanded="false">Filters <span id="filters-count" class="mono"></span></button>
+      <div class="fgroup">
+        <h2>Plugin</h2>
+        <div class="chips" id="plugin-chips"></div>
+      </div>
+      <div id="tag-groups"></div>
+    </aside>
+
+    <section aria-live="polite">
+      <div class="status">
+        <span id="count"></span>
+        <button class="linkbtn" type="button" id="clear" hidden>Clear search and filters</button>
+      </div>
+      <div class="list" id="list"></div>
+      <div class="empty" id="empty" hidden>
+        <p>No skills match. Try fewer tags or a broader word.</p>
+        <button class="linkbtn" type="button" id="clear2">Clear search and filters</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>Generated from <code>catalog/skills.json</code> and each plugin's <code>SKILL.md</code>. Submissions are processed as described in <code>catalog/PROCESSING.md</code>.</footer>
+</div>
+
+<script src="catalog.js"></script>
+<script>
+(function () {
+  const C = window.SKILLS_CATALOG;
+  const $ = (id) => document.getElementById(id);
+  if (!C) { $('tagline').textContent = 'catalog.js not found. Run node scripts/build-catalog.mjs.'; return; }
+
+  const state = { q: '', plugin: null, tags: new Set() };
+  const plugins = Object.fromEntries(C.plugins.map((p) => [p.name, p]));
+  const repoUrl = `https://github.com/${C.repo}`;
+
+  $('tagline').textContent = `${C.skills.length} skills in ${C.plugins.length} plugins · marketplace “${C.marketplace}”`;
+  $('add-cmd').textContent = `/plugin marketplace add ${C.repo}`;
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const terms = () => state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  const norm = (s) => s.toLowerCase().replace(/[-_]/g, ' ');
+
+  function highlight(text, ts) {
+    let html = esc(text);
+    if (!ts.length) return html;
+    const re = new RegExp('(' + ts.map((t) => esc(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+    return html.replace(re, '<mark>$1</mark>');
+  }
+
+  // Each term must match somewhere; matches in name and tags rank above matches in prose.
+  function score(s, ts) {
+    if (!ts.length) return 1;
+    const fields = [
+      [norm(s.name), 6], [s.tags.map(norm).join(' '), 4], [norm(s.plugin + ' ' + s.category), 3],
+      [s.summary.toLowerCase(), 2], [(s.description + ' ' + (s.example || '')).toLowerCase(), 1],
+    ];
+    let total = 0;
+    for (const raw of ts) {
+      const t = norm(raw);
+      let best = 0;
+      for (const [text, w] of fields) if (text.includes(t)) best = Math.max(best, w);
+      if (!best) return 0;
+      total += best;
+    }
+    return total;
+  }
+
+  const matchesFilters = (s, ignore) =>
+    (ignore === 'plugin' || !state.plugin || s.plugin === state.plugin) &&
+    (ignore === 'tags' || [...state.tags].every((t) => s.tags.includes(t)));
+
+  function chip(label, count, pressed, onClick, disabled) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip';
+    b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    b.innerHTML = `${esc(label)}${count != null ? ` <span class="n">${count}</span>` : ''}`;
+    b.disabled = !!disabled && !pressed;
+    b.addEventListener('click', onClick);
+    return b;
+  }
+
+  function toggleTag(t) { state.tags.has(t) ? state.tags.delete(t) : state.tags.add(t); render(); }
+
+  function render() {
+    const ts = terms();
+    const searched = C.skills.map((s) => ({ s, sc: score(s, ts) })).filter((x) => x.sc > 0);
+    const results = searched.filter((x) => matchesFilters(x.s)).sort((a, b) =>
+      b.sc - a.sc || a.s.name.localeCompare(b.s.name)).map((x) => x.s);
+
+    // Plugin facet counts ignore the plugin filter itself.
+    const pc = $('plugin-chips'); pc.replaceChildren();
+    const forPlugins = searched.filter((x) => matchesFilters(x.s, 'plugin'));
+    pc.append(chip('all', forPlugins.length, !state.plugin, () => { state.plugin = null; render(); }));
+    for (const p of C.plugins) {
+      const n = forPlugins.filter((x) => x.s.plugin === p.name).length;
+      pc.append(chip(p.name, n, state.plugin === p.name, () => { state.plugin = state.plugin === p.name ? null : p.name; render(); }, n === 0));
+    }
+
+    // Tag facet counts: how many current results also carry each tag.
+    const tg = $('tag-groups'); tg.replaceChildren();
+    for (const [group, tags] of Object.entries(C.tagGroups)) {
+      const g = document.createElement('div'); g.className = 'fgroup';
+      g.innerHTML = `<h2>${esc(group)}</h2>`;
+      const box = document.createElement('div'); box.className = 'chips';
+      for (const t of tags) {
+        const n = results.filter((s) => s.tags.includes(t)).length;
+        box.append(chip(t, n, state.tags.has(t), () => toggleTag(t), n === 0));
+      }
+      g.append(box); tg.append(g);
+    }
+
+    const active = (state.plugin ? 1 : 0) + state.tags.size;
+    $('filters-count').textContent = active ? `${active} active` : '';
+    $('clear').hidden = !(active || ts.length);
+    $('count').innerHTML = `<strong>${results.length}</strong> of ${C.skills.length} skills`;
+    $('empty').hidden = results.length > 0;
+
+    const list = $('list'); list.replaceChildren();
+    for (const s of results) list.append(card(s, ts));
+  }
+
+  function card(s, ts) {
+    const p = plugins[s.plugin];
+    const el = document.createElement('article'); el.className = 'skill';
+    const install = p.install;
+    const cmdId = `cmd-${s.name}`;
+    el.innerHTML = `
+      <div class="skill-head">
+        <h3>${highlight(s.name, ts)}</h3>
+        <div class="meta"><span class="cat">${esc(s.category)}</span><span class="plugin">plugin: ${esc(s.plugin)}</span>${p.license ? `<span>${esc(p.license)}</span>` : ''}</div>
+      </div>
+      <p class="summary">${highlight(s.summary, ts)}</p>
+      <div class="chips tags"></div>
+      <div class="row">
+        <details class="more"><summary>Details</summary></details>
+        <div class="cmd"><code id="${esc(cmdId)}">${esc(install)}</code><button class="copy" type="button" data-copy-from="${esc(cmdId)}">Copy</button></div>
+      </div>`;
+    const tagBox = el.querySelector('.tags');
+    for (const t of s.tags) tagBox.append(chip(t, null, state.tags.has(t), () => toggleTag(t)));
+
+    const d = document.createElement('div'); d.className = 'detail';
+    const rows = [];
+    if (s.example) rows.push(['Try', `<code>${esc(s.example)}</code>`]);
+    if (s.argumentHint) rows.push(['Args', `<code>/${esc(s.name)} ${esc(s.argumentHint)}</code>`]);
+    if (s.requires.length) rows.push(['Requires', s.requires.map((r) => `<code>${esc(r)}</code>`).join(', ')]);
+    if (p.commands.length) rows.push(['Commands', p.commands.map((c) => `<code>/${esc(c)}</code>`).join(' ')]);
+    rows.push(['Source', `<a href="${repoUrl}/blob/${esc(C.branch)}/${esc(s.path)}" target="_blank" rel="noopener">${esc(s.path)}</a>`]);
+    if (p.upstream) rows.push(['Upstream', `<a href="${esc(p.upstream)}" target="_blank" rel="noopener">${esc(p.upstream.replace('https://github.com/', ''))}</a>${p.version ? ` · v${esc(p.version)}` : ''}`]);
+    d.innerHTML = `<p>${highlight(s.description, ts)}</p><dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
+    el.querySelector('details').append(d);
+    return el;
+  }
+
+  function clearAll() { state.q = ''; state.plugin = null; state.tags.clear(); $('q').value = ''; render(); $('q').focus(); }
+
+  $('q').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+  $('q').addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.target.value = ''; state.q = ''; render(); } });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== $('q') && !e.metaKey && !e.ctrlKey) { e.preventDefault(); $('q').focus(); }
+  });
+  $('clear').addEventListener('click', clearAll);
+  $('clear2').addEventListener('click', clearAll);
+  $('filters-toggle').addEventListener('click', () => {
+    const f = $('filters'); const collapsed = f.classList.toggle('collapsed');
+    $('filters-toggle').setAttribute('aria-expanded', String(!collapsed));
+  });
+
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.copy'); if (!btn) return;
+    const src = $(btn.dataset.copyFrom); const text = src.textContent;
+    try { await navigator.clipboard.writeText(text); }
+    catch { const r = document.createRange(); r.selectNodeContents(src); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = 'Press ⌘C'; return; }
+    btn.textContent = 'Copied'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1400);
+  });
+
+  render();
+  window.__skillsHub = { C, esc, $ };
+})();
+</script>
+<script>
+(function () {
+  const { C, esc, $ } = window.__skillsHub || {};
+  if (!C) return;
+  const GH = /^https:\/\/github\.com\/([\w.-]+)\/([\w.-]+?)(?:\.git)?(?:\/(?:tree|blob)\/[^\s]+)?\/?$/;
+  const allTags = Object.values(C.tagGroups).flat();
+  const chosen = new Set();
+  let db = null, subs = [], busy = false;
+
+  // Toggle panel
+  const toggle = $('submit-toggle'), panel = $('submit-panel');
+  toggle.addEventListener('click', () => {
+    const open = panel.hidden; panel.hidden = !open; toggle.setAttribute('aria-expanded', String(open));
+    if (open) $('s-url').focus();
+  });
+
+  // Suggestions from the catalog
+  $('dl-plugins').innerHTML = C.plugins.map((p) => `<option value="${esc(p.name)}"></option>`).join('');
+  $('dl-categories').innerHTML = [...new Set(C.skills.map((s) => s.category))].sort().map((c) => `<option value="${esc(c)}"></option>`).join('');
+  function renderTagPicker() {
+    const box = $('s-tags'); box.replaceChildren();
+    for (const t of allTags) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = t;
+      b.setAttribute('aria-pressed', chosen.has(t) ? 'true' : 'false');
+      b.addEventListener('click', () => { chosen.has(t) ? chosen.delete(t) : chosen.add(t); renderTagPicker(); });
+      box.append(b);
+    }
+  }
+  renderTagPicker();
+
+  const slug = (t) => t.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const repoOf = (url) => { const m = url.match(GH); return m ? `${m[1]}/${m[2]}`.toLowerCase() : null; };
+
+  function checkUrl() {
+    const input = $('s-url'), hint = $('s-url-hint'), v = input.value.trim();
+    hint.className = 'hint';
+    hint.textContent = 'A repo, or the folder of one skill (…/tree/main/skills/name). Every SKILL.md under it is added.';
+    input.removeAttribute('aria-invalid');
+    if (!v) return null;
+    const repo = repoOf(v);
+    if (!repo) { input.setAttribute('aria-invalid', 'true'); hint.className = 'hint err'; hint.textContent = 'Use a github.com link, like https://github.com/owner/repo.'; return null; }
+    if (subs.some((s) => s.status === 'pending' && s.url.replace(/\/$/, '') === v.replace(/\/$/, ''))) {
+      input.setAttribute('aria-invalid', 'true'); hint.className = 'hint err'; hint.textContent = 'This link is already waiting to be processed.'; return null;
+    }
+    const existing = C.plugins.find((p) => p.upstream && p.upstream.toLowerCase().replace(/\/$/, '').endsWith('/' + repo));
+    if (existing) { hint.className = 'hint warn'; hint.textContent = `This repo is already in SkillsHub as the ${existing.name} plugin. Submit anyway to add other skills from it.`; }
+    return v;
+  }
+  $('s-url').addEventListener('input', checkUrl);
+
+  const fmtDate = (iso) => { try { return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); } catch { return ''; } };
+
+  function renderSubs() {
+    const list = $('subs-list'); list.replaceChildren();
+    const pending = subs.filter((s) => s.status === 'pending').length;
+    const badge = $('pending-badge'); badge.hidden = !pending; badge.textContent = pending ? `${pending} pending` : '';
+    if (!subs.length) { $('subs-state').hidden = false; $('subs-state').textContent = 'No submissions yet. Submitted links appear here with their status.'; return; }
+    $('subs-state').hidden = true;
+    for (const s of subs) {
+      const li = document.createElement('li'); li.className = 'sub';
+      const status = ['pending', 'added', 'rejected', 'error'].includes(s.status) ? s.status : 'pending';
+      const added = Array.isArray(s.addedSkills) && s.addedSkills.length ? `<span>added: ${s.addedSkills.map((n) => `<code>${esc(n)}</code>`).join(', ')}</span>` : '';
+      li.innerHTML = `
+        <div class="sub-top"><span class="sub-url">${esc(String(s.url || '').replace('https://github.com/', ''))}</span><span class="pill ${status}">${status}</span></div>
+        <div class="sub-meta"><span>${esc(fmtDate(s.createdAt))}</span>${s.plugin ? `<span>plugin: ${esc(s.plugin)}</span>` : ''}${added}</div>
+        ${s.result ? `<p class="sub-result">${esc(s.result)}</p>` : ''}`;
+      if (status === 'pending' && db) {
+        const w = document.createElement('button'); w.type = 'button'; w.className = 'linkbtn'; w.textContent = 'Withdraw';
+        w.addEventListener('click', async () => { w.disabled = true; try { await db.collection('submissions').doc(s.id).delete(); } catch { w.disabled = false; w.textContent = 'Could not withdraw. Try again'; } });
+        li.querySelector('.sub-meta').append(w);
+      }
+      list.append(li);
+    }
+  }
+
+  function setUnavailable(html) {
+    $('subs-state').hidden = false; $('subs-state').innerHTML = html;
+    $('s-submit').disabled = true;
+  }
+
+  $('submit-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (busy || !db) return;
+    const msg = $('s-msg'); msg.className = ''; msg.textContent = '';
+    const url = checkUrl();
+    if (!url) { if (!$('s-url').value.trim()) { $('s-url').setAttribute('aria-invalid', 'true'); $('s-url-hint').className = 'hint err'; $('s-url-hint').textContent = 'Paste a GitHub link to submit.'; } $('s-url').focus(); return; }
+    const tags = [...new Set([...chosen, ...$('s-newtags').value.split(',').map(slug).filter(Boolean)])];
+    const doc = {
+      url,
+      plugin: slug($('s-plugin').value) || null,
+      category: $('s-category').value.trim() || null,
+      summary: $('s-summary').value.trim() || null,
+      tags,
+      notes: $('s-notes').value.trim() || null,
+      status: 'pending',
+      createdAt: new Date().toISOString(),
+      processedAt: null,
+      result: null,
+      addedSkills: [],
+    };
+    busy = true; $('s-submit').disabled = true; $('s-submit').textContent = 'Submitting…';
+    try {
+      await db.collection('submissions').add(doc);
+      $('submit-form').reset(); chosen.clear(); renderTagPicker(); checkUrl();
+      msg.className = 'ok'; msg.textContent = 'Submitted. It shows as pending until Claude adds it.';
+    } catch (err) {
+      msg.className = 'err';
+      msg.textContent = err && err.code === 'invalid_argument'
+        ? 'You can view SkillsHub but not submit to it. Ask the owner for Contributor access.'
+        : 'Could not save the submission. Check your connection and submit again.';
+    } finally {
+      busy = false; $('s-submit').disabled = false; $('s-submit').textContent = 'Submit skill';
+    }
+  });
+
+  // Connect to the artifact's database (only inside claude.ai).
+  if (!window.claude || typeof window.claude.use !== 'function') {
+    const link = C.artifactUrl ? ` <a href="${esc(C.artifactUrl)}" target="_blank" rel="noopener">Open SkillsHub on claude.ai</a> to submit.` : '';
+    setUnavailable(`Submitting works in the SkillsHub artifact on claude.ai.${link}`);
+    return;
+  }
+  window.claude.use('db').then((d) => {
+    if (!d) { setUnavailable('Sign in to claude.ai to see and send submissions.'); return; }
+    db = d;
+    const timer = setTimeout(() => { $('subs-state').hidden = false; $('subs-state').textContent = 'Submissions can’t be reached yet. They will appear when the connection returns.'; }, 10000);
+    db.collection('submissions').orderBy('createdAt', 'desc').limit(50).onSnapshot((snap) => {
+      if (!snap.metadata.fromCache) clearTimeout(timer);
+      subs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+      renderSubs();
+    }, (err) => {
+      clearTimeout(timer);
+      setUnavailable(err && err.code === 'invalid_argument' ? 'You don’t have access to submissions on this artifact.' : 'Submissions are unavailable right now. Reload the page later.');
+    });
+  });
+})();
+</script>

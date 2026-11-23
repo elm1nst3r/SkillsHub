@@ -2,44 +2,153 @@
   "repo": "elm1nst3r/SkillsHub",
   "branch": "main",
   "marketplace": "skillshub",
+  "artifactUrl": "https://claude.ai/artifact/SfR4xrQcGHQMMuurbGQLvJ",
   "tagGroups": {
-    "Output": ["html", "svg", "png", "video", "animation", "interactive"],
-    "Kind": ["diagrams", "charts", "illustration", "explainer"],
-    "Diagram types": ["architecture", "flowchart", "sequence", "erd", "state-machine", "timeline", "data-flow", "gantt", "org-chart", "journey-map"],
-    "Inputs": ["mermaid", "drawio", "excalidraw", "plantuml", "svg-import", "codebase"],
-    "Workflow": ["pull-request", "code-review", "code-analysis", "branding"],
-    "Style": ["isometric", "editorial", "line-art"]
+    "Output": [
+      "html",
+      "svg",
+      "png",
+      "video",
+      "animation",
+      "interactive"
+    ],
+    "Kind": [
+      "diagrams",
+      "charts",
+      "illustration",
+      "explainer"
+    ],
+    "Diagram types": [
+      "architecture",
+      "flowchart",
+      "sequence",
+      "erd",
+      "state-machine",
+      "timeline",
+      "data-flow",
+      "gantt",
+      "org-chart",
+      "journey-map"
+    ],
+    "Inputs": [
+      "mermaid",
+      "drawio",
+      "excalidraw",
+      "plantuml",
+      "svg-import",
+      "codebase"
+    ],
+    "Workflow": [
+      "pull-request",
+      "code-review",
+      "code-analysis",
+      "branding"
+    ],
+    "Style": [
+      "isometric",
+      "editorial",
+      "line-art"
+    ]
   },
   "skills": {
     "hairline-create": {
       "category": "Illustration",
       "summary": "Draws a new isometric line figure that reacts to the pointer, delivered as a single self-contained HTML file.",
-      "tags": ["illustration", "isometric", "line-art", "interactive", "animation", "html"],
+      "tags": [
+        "illustration",
+        "isometric",
+        "line-art",
+        "interactive",
+        "animation",
+        "html"
+      ],
       "example": "/hairline-create a filing cabinet whose drawers slide open on hover"
     },
     "hairline-adopt": {
       "category": "Illustration",
       "summary": "Rebuilds an existing SVG icon, logo or illustration as an interactive isometric Hairline figure.",
-      "tags": ["illustration", "isometric", "line-art", "svg-import", "interactive", "animation", "html"],
+      "tags": [
+        "illustration",
+        "isometric",
+        "line-art",
+        "svg-import",
+        "interactive",
+        "animation",
+        "html"
+      ],
       "example": "/hairline-adopt logo.svg tilt toward the cursor"
     },
     "archify": {
       "category": "Diagrams",
       "summary": "Creates validated architecture, workflow, sequence, ERD, state and timeline diagrams as explorable HTML, plus one-page explainers and code-backed architecture analysis.",
-      "tags": ["diagrams", "architecture", "flowchart", "sequence", "erd", "state-machine", "timeline", "data-flow", "explainer", "codebase", "code-analysis", "mermaid", "html", "svg", "png", "video", "animation", "interactive"],
+      "tags": [
+        "diagrams",
+        "architecture",
+        "flowchart",
+        "sequence",
+        "erd",
+        "state-machine",
+        "timeline",
+        "data-flow",
+        "explainer",
+        "codebase",
+        "code-analysis",
+        "mermaid",
+        "html",
+        "svg",
+        "png",
+        "video",
+        "animation",
+        "interactive"
+      ],
       "example": "Draw the request flow of this repo's API as an archify diagram"
     },
     "archify-pr": {
       "category": "Code review",
       "summary": "Explains a branch diff or pull request with visual architecture, flow, schema and lifecycle walkthroughs you can attach to the PR.",
-      "tags": ["pull-request", "code-review", "diagrams", "architecture", "sequence", "erd", "codebase", "svg", "png"],
-      "requires": ["archify"],
+      "tags": [
+        "pull-request",
+        "code-review",
+        "diagrams",
+        "architecture",
+        "sequence",
+        "erd",
+        "codebase",
+        "svg",
+        "png"
+      ],
+      "requires": [
+        "archify"
+      ],
       "example": "Explain PR #42 with an archify walkthrough"
     },
     "diagram-design": {
       "category": "Diagrams",
       "summary": "Makes editorial, on-brand diagrams and charts in 50+ types as HTML/SVG/PNG, and redraws draw.io, Mermaid, Excalidraw and PlantUML files.",
-      "tags": ["diagrams", "charts", "editorial", "branding", "architecture", "flowchart", "sequence", "erd", "state-machine", "timeline", "gantt", "org-chart", "journey-map", "data-flow", "mermaid", "drawio", "excalidraw", "plantuml", "html", "svg", "png", "animation"],
+      "tags": [
+        "diagrams",
+        "charts",
+        "editorial",
+        "branding",
+        "architecture",
+        "flowchart",
+        "sequence",
+        "erd",
+        "state-machine",
+        "timeline",
+        "gantt",
+        "org-chart",
+        "journey-map",
+        "data-flow",
+        "mermaid",
+        "drawio",
+        "excalidraw",
+        "plantuml",
+        "html",
+        "svg",
+        "png",
+        "animation"
+      ],
       "example": "Make a Wardley map of our platform in our brand colors"
     }
   }

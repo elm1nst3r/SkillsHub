@@ -3,6 +3,7 @@ window.SKILLS_CATALOG = {
   "repo": "elm1nst3r/SkillsHub",
   "branch": "main",
   "marketplace": "skillshub",
+  "artifactUrl": "https://claude.ai/artifact/SfR4xrQcGHQMMuurbGQLvJ",
   "tagGroups": {
     "Output": [
       "html",

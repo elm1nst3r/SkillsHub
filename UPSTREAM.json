@@ -1,5 +1,75 @@
 {
-  "hairline":       { "repo": "lucasmarkes/hairline",          "commit": "034f4bf9902c6adcf3cf39d82f85e6010cb4e094", "paths": ["skills/hairline-create", "skills/hairline-adopt"] },
-  "archify":        { "repo": "tt-a1i/archify",                "commit": "3ca198d867ce4b616332f846ff66e5c8e5e60f95", "paths": ["archify", "archify-pr"] },
-  "diagram-design": { "repo": "cathrynlavery/diagram-design",  "commit": "0eeda75a708f419560d5e032693618bb9954f17b", "paths": ["skills", "commands", ".claude-plugin/plugin.json"] }
+  "hairline": {
+    "repo": "lucasmarkes/hairline",
+    "ref": null,
+    "commit": "034f4bf9902c6adcf3cf39d82f85e6010cb4e094",
+    "copy": [
+      [
+        "skills/hairline-create",
+        "skills/hairline-create"
+      ],
+      [
+        "skills/hairline-adopt",
+        "skills/hairline-adopt"
+      ],
+      [
+        "LICENSE",
+        "LICENSE"
+      ]
+    ]
+  },
+  "archify": {
+    "repo": "tt-a1i/archify",
+    "ref": null,
+    "commit": "3ca198d867ce4b616332f846ff66e5c8e5e60f95",
+    "copy": [
+      [
+        "archify",
+        "skills/archify"
+      ],
+      [
+        "archify-pr",
+        "skills/archify-pr"
+      ],
+      [
+        "LICENSE",
+        "LICENSE"
+      ],
+      [
+        "LICENSE-MIT",
+        "LICENSE-MIT"
+      ],
+      [
+        "NOTICE",
+        "NOTICE"
+      ]
+    ]
+  },
+  "diagram-design": {
+    "repo": "cathrynlavery/diagram-design",
+    "ref": null,
+    "commit": "0eeda75a708f419560d5e032693618bb9954f17b",
+    "copy": [
+      [
+        "skills",
+        "skills"
+      ],
+      [
+        "commands",
+        "commands"
+      ],
+      [
+        ".claude-plugin/plugin.json",
+        ".claude-plugin/plugin.json"
+      ],
+      [
+        "LICENSE",
+        "LICENSE"
+      ],
+      [
+        "THIRD_PARTY_LICENSES.md",
+        "THIRD_PARTY_LICENSES.md"
+      ]
+    ]
+  }
 }

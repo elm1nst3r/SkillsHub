@@ -1,32 +1,26 @@
 #!/usr/bin/env bash
-# Refresh vendored skills from their upstream repos and record the new commits.
-# Usage: scripts/sync-upstream.sh [hairline|archify|diagram-design ...]   (default: all)
+# Refresh vendored plugins from their upstream repos, as described in UPSTREAM.json:
+#   "<plugin>": { "repo": "owner/name", "ref": "branch-or-tag or null", "commit": "...",
+#                 "copy": [["path/in/upstream", "path/in/plugins/<plugin>"], ...] }
+# Usage: scripts/sync-upstream.sh [plugin ...]   (default: all)
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
-names=("$@"); [ ${#names[@]} -eq 0 ] && names=(hairline archify diagram-design)
+if [ $# -eq 0 ]; then mapfile -t names < <(jq -r 'keys[]' "$ROOT/UPSTREAM.json"); else names=("$@"); fi
 
 for n in "${names[@]}"; do
-  repo=$(jq -r --arg n "$n" '.[$n].repo' "$ROOT/UPSTREAM.json")
-  git clone -q --depth 1 "https://github.com/$repo.git" "$TMP/$n"
+  entry=$(jq -c --arg n "$n" '.[$n] // empty' "$ROOT/UPSTREAM.json")
+  [ -z "$entry" ] && { echo "unknown plugin: $n" >&2; exit 1; }
+  repo=$(jq -r .repo <<<"$entry"); ref=$(jq -r '.ref // empty' <<<"$entry")
+  git clone -q --depth 1 ${ref:+--branch "$ref"} "https://github.com/$repo.git" "$TMP/$n"
   sha=$(git -C "$TMP/$n" rev-parse HEAD)
   dst="$ROOT/plugins/$n"
-  case "$n" in
-    hairline)
-      rm -rf "$dst/skills"; mkdir -p "$dst/skills"
-      cp -r "$TMP/$n/skills/hairline-create" "$TMP/$n/skills/hairline-adopt" "$dst/skills/"
-      cp "$TMP/$n/LICENSE" "$dst/" ;;
-    archify)
-      rm -rf "$dst/skills"; mkdir -p "$dst/skills"
-      cp -r "$TMP/$n/archify" "$TMP/$n/archify-pr" "$dst/skills/"
-      cp "$TMP/$n/LICENSE" "$TMP/$n/LICENSE-MIT" "$TMP/$n/NOTICE" "$dst/" ;;
-    diagram-design)
-      rm -rf "$dst/skills" "$dst/commands"
-      cp -r "$TMP/$n/skills" "$TMP/$n/commands" "$dst/"
-      cp "$TMP/$n/.claude-plugin/plugin.json" "$dst/.claude-plugin/plugin.json"
-      cp "$TMP/$n/LICENSE" "$TMP/$n/THIRD_PARTY_LICENSES.md" "$dst/" ;;
-    *) echo "unknown plugin: $n" >&2; exit 1 ;;
-  esac
+  while IFS=$'\t' read -r from to; do
+    [ -e "$TMP/$n/$from" ] || { echo "$n: $from not found upstream" >&2; exit 1; }
+    rm -rf "${dst:?}/$to"; mkdir -p "$(dirname "$dst/$to")"
+    cp -r "$TMP/$n/$from" "$dst/$to"
+  done < <(jq -r '.copy[] | @tsv' <<<"$entry")
+  find "$dst" -name .DS_Store -delete
   tmpj=$(mktemp); jq --arg n "$n" --arg s "$sha" '.[$n].commit=$s' "$ROOT/UPSTREAM.json" > "$tmpj" && mv "$tmpj" "$ROOT/UPSTREAM.json"
   echo "$n -> $sha"
 done
