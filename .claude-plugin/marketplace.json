@@ -24,6 +24,42 @@
       "source": "./plugins/diagram-design",
       "description": "Editorial diagrams in your brand as self-contained HTML/SVG; imports draw.io, Mermaid, Excalidraw, PlantUML.",
       "category": "design"
+    },
+    {
+      "name": "modern-web-guidance",
+      "source": "./plugins/modern-web-guidance",
+      "description": "Modern web platform best practices for HTML, CSS and client-side JS, plus building and publishing Chrome extensions.",
+      "category": "development"
+    },
+    {
+      "name": "obsidian",
+      "source": "./plugins/obsidian",
+      "description": "Work with Obsidian vaults: Markdown, Bases, JSON Canvas, the Obsidian CLI and Headless, Defuddle and Knap.",
+      "category": "productivity"
+    },
+    {
+      "name": "hallmark",
+      "source": "./plugins/hallmark",
+      "description": "Design skill for new websites and pages that look designed, not generated; also redesigns and audits.",
+      "category": "design"
+    },
+    {
+      "name": "xlsx-artifacts",
+      "source": "./plugins/xlsx-artifacts",
+      "description": "Anthropic's xlsx spreadsheet skill and web-artifacts-builder for multi-component React artifacts.",
+      "category": "productivity"
+    },
+    {
+      "name": "instagram-agent",
+      "source": "./plugins/instagram-agent",
+      "description": "Thirteen skills that run an Instagram account: reels, captions, carousels, stories, DMs, plans, audits and a humanizer.",
+      "category": "marketing"
+    },
+    {
+      "name": "impeccable",
+      "source": "./plugins/impeccable",
+      "description": "Design fluency for frontend work: one skill with 24 commands to shape, audit, critique, polish and animate UI.",
+      "category": "design"
     }
   ]
 }

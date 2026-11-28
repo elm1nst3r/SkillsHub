@@ -1,0 +1,9 @@
+{
+  "name": "xlsx-artifacts",
+  "description": "Selected skills from Anthropic's skills repo: xlsx spreadsheets and web-artifacts-builder.",
+  "version": "1.0.0",
+  "author": { "name": "Anthropic", "url": "https://github.com/anthropics" },
+  "repository": "https://github.com/anthropics/skills",
+  "license": "Apache-2.0",
+  "keywords": ["xlsx", "spreadsheets", "excel", "react", "artifacts"]
+}

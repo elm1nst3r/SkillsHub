@@ -11,6 +11,8 @@ My private Claude Code plugin marketplace of favorite agent skills.
 /plugin install diagram-design@skillshub
 ```
 
+Every plugin in the table below installs the same way: `/plugin install <plugin>@skillshub`.
+
 Private repo: make sure `gh auth login` (or a `GITHUB_TOKEN`) works in the environment so Claude Code can clone it.
 
 ## Plugins
@@ -20,6 +22,12 @@ Private repo: make sure `gh auth login` (or a `GITHUB_TOKEN`) works in the envir
 | `hairline` | `hairline-create`, `hairline-adopt` | [lucasmarkes/hairline](https://github.com/lucasmarkes/hairline) | MIT |
 | `archify` | `archify`, `archify-pr` | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 |
 | `diagram-design` | `diagram-design` (+ import/export commands) | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT |
+| `modern-web-guidance` | `modern-web-guidance`, `chrome-extensions` | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) | Apache-2.0 |
+| `obsidian` | `obsidian-markdown`, `obsidian-bases`, `obsidian-cli`, `obsidian-headless`, `json-canvas`, `defuddle`, `knap` | [obsidianmd/obsidian-skills](https://github.com/obsidianmd/obsidian-skills) | MIT |
+| `hallmark` | `hallmark` | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | MIT |
+| `xlsx-artifacts` | `xlsx`, `web-artifacts-builder` | [anthropics/skills](https://github.com/anthropics/skills) | Apache-2.0 |
+| `instagram-agent` | 13 `ig-*` skills | [Jakeschincariol/instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) | MIT |
+| `impeccable` | `impeccable` (+ agents and hooks) | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 |
 
 Skills are vendored (copied) so they keep working if upstream changes or disappears. Pinned commits are in `UPSTREAM.json`; each plugin folder keeps its upstream license.
 

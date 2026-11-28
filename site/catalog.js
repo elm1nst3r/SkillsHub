@@ -11,13 +11,20 @@ window.SKILLS_CATALOG = {
       "png",
       "video",
       "animation",
-      "interactive"
+      "interactive",
+      "markdown",
+      "xlsx",
+      "artifacts"
     ],
     "Kind": [
       "diagrams",
       "charts",
       "illustration",
-      "explainer"
+      "explainer",
+      "ui-design",
+      "guidance",
+      "copywriting",
+      "data"
     ],
     "Diagram types": [
       "architecture",
@@ -29,7 +36,8 @@ window.SKILLS_CATALOG = {
       "data-flow",
       "gantt",
       "org-chart",
-      "journey-map"
+      "journey-map",
+      "mind-map"
     ],
     "Inputs": [
       "mermaid",
@@ -37,18 +45,46 @@ window.SKILLS_CATALOG = {
       "excalidraw",
       "plantuml",
       "svg-import",
-      "codebase"
+      "codebase",
+      "csv",
+      "web-clipping",
+      "analytics"
+    ],
+    "Domain": [
+      "frontend",
+      "web-platform",
+      "react",
+      "css",
+      "accessibility",
+      "performance",
+      "browser-extensions",
+      "design-system",
+      "landing-page",
+      "spreadsheets",
+      "notes",
+      "obsidian",
+      "social-media",
+      "instagram",
+      "video-scripts"
     ],
     "Workflow": [
       "pull-request",
       "code-review",
       "code-analysis",
-      "branding"
+      "branding",
+      "audit",
+      "planning",
+      "research",
+      "publishing",
+      "templates",
+      "cli",
+      "automation"
     ],
     "Style": [
       "isometric",
       "editorial",
-      "line-art"
+      "line-art",
+      "anti-slop"
     ]
   },
   "plugins": [
@@ -75,7 +111,7 @@ window.SKILLS_CATALOG = {
     {
       "name": "diagram-design",
       "description": "Editorial diagrams in your brand as self-contained HTML/SVG; imports draw.io, Mermaid, Excalidraw, PlantUML.",
-      "version": "2.6.174",
+      "version": "2.6.181",
       "license": "MIT",
       "upstream": "https://github.com/cathrynlavery/diagram-design",
       "author": "Cathryn Lavery",
@@ -89,6 +125,66 @@ window.SKILLS_CATALOG = {
         "profile"
       ],
       "install": "/plugin install diagram-design@skillshub"
+    },
+    {
+      "name": "modern-web-guidance",
+      "description": "Modern web platform best practices for HTML, CSS and client-side JS, plus building and publishing Chrome extensions.",
+      "version": "1.0.2",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/GoogleChrome/modern-web-guidance",
+      "author": "Google Chrome",
+      "commands": [],
+      "install": "/plugin install modern-web-guidance@skillshub"
+    },
+    {
+      "name": "obsidian",
+      "description": "Work with Obsidian vaults: Markdown, Bases, JSON Canvas, the Obsidian CLI and Headless, Defuddle and Knap.",
+      "version": "1.2.3",
+      "license": "MIT",
+      "upstream": "https://github.com/obsidianmd/obsidian-skills",
+      "author": "Obsidian",
+      "commands": [],
+      "install": "/plugin install obsidian@skillshub"
+    },
+    {
+      "name": "hallmark",
+      "description": "Design skill for new websites and pages that look designed, not generated; also redesigns and audits.",
+      "version": "2.0.0",
+      "license": "MIT",
+      "upstream": "https://github.com/Nutlope/hallmark",
+      "author": "Nutlope",
+      "commands": [],
+      "install": "/plugin install hallmark@skillshub"
+    },
+    {
+      "name": "xlsx-artifacts",
+      "description": "Anthropic's xlsx spreadsheet skill and web-artifacts-builder for multi-component React artifacts.",
+      "version": "1.0.0",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/anthropics/skills",
+      "author": "Anthropic",
+      "commands": [],
+      "install": "/plugin install xlsx-artifacts@skillshub"
+    },
+    {
+      "name": "instagram-agent",
+      "description": "Thirteen skills that run an Instagram account: reels, captions, carousels, stories, DMs, plans, audits and a humanizer.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "upstream": "https://github.com/Jakeschincariol/instagram-agent-skill",
+      "author": "Jake Schincariol",
+      "commands": [],
+      "install": "/plugin install instagram-agent@skillshub"
+    },
+    {
+      "name": "impeccable",
+      "description": "Design fluency for frontend work: one skill with 24 commands to shape, audit, critique, polish and animate UI.",
+      "version": "4.11.1",
+      "license": null,
+      "upstream": "https://github.com/pbakaus/impeccable",
+      "author": "Paul Bakaus",
+      "commands": [],
+      "install": "/plugin install impeccable@skillshub"
     }
   ],
   "skills": [
@@ -220,6 +316,456 @@ window.SKILLS_CATALOG = {
       "argumentHint": null,
       "description": "Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state machine, ER/data model, steps, timeline, git graph, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested, tree, org chart, layer stack, exploded axonometric, axonometric plan, Venn, pyramid/funnel, treemap and marimekko, unit grid, heatmap, bar and dumbbell, waterfall, line (slopegraph, ridgeline, streamgraph, bump), Gantt and scatter charts (bubble, beeswarm, box plot), high-level, process, medallion, data flow, DP integration, DP security matrix, Sankey, fishbone, Wardley map, kanban, user journey, service blueprint, deployment, dependency graph (arc diagram), UML class, story map, database schema, SBGN, requirement traceability, event modeling, or schedule network diagrams as HTML/SVG/PNG, with .drawio, Mermaid, .excalidraw, and PlantUML import, plus lifecycle phase maps, block decomposition trees, and onboarding guidance.",
       "path": "plugins/diagram-design/skills/diagram-design/SKILL.md"
+    },
+    {
+      "name": "chrome-extensions",
+      "plugin": "modern-web-guidance",
+      "category": "Web development",
+      "summary": "Builds, debugs and publishes Manifest V3 Chrome extensions, including Chrome Web Store submission and review fixes.",
+      "tags": [
+        "guidance",
+        "browser-extensions",
+        "web-platform",
+        "frontend",
+        "publishing"
+      ],
+      "requires": [],
+      "example": "Make a Chrome extension that adds a side panel summarizing the page",
+      "argumentHint": null,
+      "description": "Build and publish Chrome Extensions using Manifest V3 best practices. Use this skill whenever the user asks to create, modify, debug, or understand Chrome browser extensions, add-ons, or anything involving the Chrome Extensions API. Trigger on mentions of: 'Chrome extension', 'browser extension', 'manifest.json', 'content script', 'service worker' (in browser context), 'popup' (in browser extension context), 'side panel', 'chrome.* API', 'declarativeNetRequest', 'omnibox', 'context menu' (in extension context), 'userScripts', 'user script', 'script manager', or any request to build functionality that integrates with the Chrome browser UI. Also trigger for publishing to the Chrome Web Store: 'publish extension', preparing an extension for publishing, responding to a review rejection, writing permission justifications, or drafting a privacy policy.",
+      "path": "plugins/modern-web-guidance/skills/chrome-extensions/SKILL.md"
+    },
+    {
+      "name": "modern-web-guidance",
+      "plugin": "modern-web-guidance",
+      "category": "Web development",
+      "summary": "Looks up current web platform best practices before writing HTML, CSS or client-side JS, and scans code for legacy patterns to modernize.",
+      "tags": [
+        "guidance",
+        "web-platform",
+        "frontend",
+        "css",
+        "accessibility",
+        "performance",
+        "cli"
+      ],
+      "requires": [],
+      "example": "Build an accessible modal dialog with entry and exit animations",
+      "argumentHint": null,
+      "description": "Search tool for modern web development best practices. MANDATORY: Execute FIRST for all HTML/CSS and clientside JS tasks. Do NOT skip — web APIs evolve rapidly and training weights contain obsolete patterns.\nTrigger immediately for: modals/dialogs/popovers, tables, dark mode, anchor positioning, container queries, view transitions, scroll-driven animations, parallax/reveals, forms, validation, autofill, accessibility, custom selects, scrollbars, CWV (LCP, INP, CLS), content-visibility, fetch priority, image optimization, security, passkeys, HTML sanitization, web components, dates/timezones, built-in AI, WebAssembly, standard HTML/CSS/DOM in frameworks, etc.\nDO NOT trigger for: backend (SQL, ORMs, API routes), infra/scripts (CI/CD, Docker, Actions, Python/Go, Git), or tooling/trivial (Vite, tsconfig, ESLint, tests, copy/renames, 3P docs), etc.",
+      "path": "plugins/modern-web-guidance/skills/modern-web-guidance/SKILL.md"
+    },
+    {
+      "name": "defuddle",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Extracts clean Markdown from web pages with the Defuddle CLI, ready to save as notes.",
+      "tags": [
+        "web-clipping",
+        "markdown",
+        "notes",
+        "cli"
+      ],
+      "requires": [],
+      "example": "Save this article as clean Markdown in my vault",
+      "argumentHint": null,
+      "description": "Extract clean Markdown from HTML pages with Defuddle CLI.",
+      "path": "plugins/obsidian/skills/defuddle/SKILL.md"
+    },
+    {
+      "name": "json-canvas",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Creates and edits JSON Canvas (.canvas) files with nodes, edges and groups for mind maps and visual boards.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "mind-map",
+        "diagrams",
+        "flowchart"
+      ],
+      "requires": [],
+      "example": "Turn these project notes into a canvas mind map",
+      "argumentHint": null,
+      "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "path": "plugins/obsidian/skills/json-canvas/SKILL.md"
+    },
+    {
+      "name": "knap",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Renders Markdown notes from templates and JSON or CSV data with the Knap CLI, including batch generation.",
+      "tags": [
+        "markdown",
+        "templates",
+        "csv",
+        "notes",
+        "obsidian",
+        "cli",
+        "automation"
+      ],
+      "requires": [],
+      "example": "Generate one note per row of books.csv with my book template",
+      "argumentHint": null,
+      "description": "Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn JSON or CSV data into notes, batch-generate Markdown files, or format Defuddle output into a note.",
+      "path": "plugins/obsidian/skills/knap/SKILL.md"
+    },
+    {
+      "name": "obsidian-bases",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Creates and edits Obsidian Bases (.base files): table, card and kanban views with filters, formulas and summaries.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "data",
+        "markdown"
+      ],
+      "requires": [],
+      "example": "Make a base that lists all notes tagged #project as a kanban by status",
+      "argumentHint": null,
+      "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, kanban boards, filters, or formulas in Obsidian.",
+      "path": "plugins/obsidian/skills/obsidian-bases/SKILL.md"
+    },
+    {
+      "name": "obsidian-cli",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Reads, searches and manages notes, tasks and properties in an Obsidian vault through the Obsidian CLI, and helps with plugin development.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "cli",
+        "automation"
+      ],
+      "requires": [],
+      "example": "Find all open tasks in my vault due this week",
+      "argumentHint": null,
+      "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+      "path": "plugins/obsidian/skills/obsidian-cli/SKILL.md"
+    },
+    {
+      "name": "obsidian-headless",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Sets up and runs Obsidian Sync and Publish from a terminal, server or CI with Obsidian Headless.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "publishing",
+        "cli",
+        "automation"
+      ],
+      "requires": [],
+      "example": "Publish my vault's public folder from a GitHub Action",
+      "argumentHint": null,
+      "description": "Sync and publish Obsidian vaults from the command line with Obsidian Headless (`ob`), without the desktop app. Use when the user wants to set up or run Obsidian Sync or Obsidian Publish on a server, in CI, or from a terminal, or change a vault's Sync or Publish settings.",
+      "path": "plugins/obsidian/skills/obsidian-headless/SKILL.md"
+    },
+    {
+      "name": "obsidian-markdown",
+      "plugin": "obsidian",
+      "category": "Notes & knowledge",
+      "summary": "Writes Obsidian Flavored Markdown with wikilinks, embeds, callouts and properties.",
+      "tags": [
+        "obsidian",
+        "markdown",
+        "notes"
+      ],
+      "requires": [],
+      "example": "Convert this doc into an Obsidian note with callouts and backlinks",
+      "argumentHint": null,
+      "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+      "path": "plugins/obsidian/skills/obsidian-markdown/SKILL.md"
+    },
+    {
+      "name": "hallmark",
+      "plugin": "hallmark",
+      "category": "UI design",
+      "summary": "Designs new websites and pages that look made rather than generated, and can redesign or audit an existing page against AI-default patterns.",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "landing-page",
+        "anti-slop",
+        "audit",
+        "html"
+      ],
+      "requires": [],
+      "example": "/hallmark a landing page for a ceramics studio",
+      "argumentHint": "<prompt> | redesign <path> | audit <path>",
+      "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
+      "path": "plugins/hallmark/skills/hallmark/SKILL.md"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "plugin": "xlsx-artifacts",
+      "category": "Web development",
+      "summary": "Builds complex multi-component claude.ai artifacts with React, Tailwind CSS and shadcn/ui, bundled to a single HTML file.",
+      "tags": [
+        "react",
+        "frontend",
+        "artifacts",
+        "html",
+        "interactive"
+      ],
+      "requires": [],
+      "example": "Build a multi-page budgeting app artifact with routing",
+      "argumentHint": null,
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "path": "plugins/xlsx-artifacts/skills/web-artifacts-builder/SKILL.md"
+    },
+    {
+      "name": "xlsx",
+      "plugin": "xlsx-artifacts",
+      "category": "Data",
+      "summary": "Reads, edits, creates and converts spreadsheets (.xlsx, .csv, .tsv) with formulas, formatting and charts.",
+      "tags": [
+        "spreadsheets",
+        "xlsx",
+        "csv",
+        "data",
+        "charts"
+      ],
+      "requires": [],
+      "example": "Clean up this CSV and build a pivot summary with a chart in Excel",
+      "argumentHint": null,
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "path": "plugins/xlsx-artifacts/skills/xlsx/SKILL.md"
+    },
+    {
+      "name": "ig-audit",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Reviews past posts and insights to show which reels worked, why, and what to stop making.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "analytics",
+        "audit"
+      ],
+      "requires": [],
+      "example": "Here are my last 20 reels' stats. What's working?",
+      "argumentHint": null,
+      "description": "Post-mortem on what the user has already posted - which reels actually worked, why, and what to stop making. Use when the user pastes their Instagram insights or past posts and asks \"what's working\", \"why did this flop\", \"read my analytics\", \"audit my content\", or wants to know what to do more of.",
+      "path": "plugins/instagram-agent/skills/ig-audit/SKILL.md"
+    },
+    {
+      "name": "ig-caption",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Writes an Instagram caption that survives the “more” cut, with one ask, search terms and three hashtags, and lints it.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Caption this reel about my morning routine",
+      "argumentHint": null,
+      "description": "Write the Instagram caption - the line that survives the \"... more\" cut, the body, the single ask, the search terms and the three hashtags - and lint it before it goes out. Use when the user says \"write the caption\", \"caption this\", \"what do I put in the description\", has a reel or a carousel ready and needs the text, or asks about hashtags.",
+      "path": "plugins/instagram-agent/skills/ig-caption/SKILL.md"
+    },
+    {
+      "name": "ig-carousel",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Builds an Instagram carousel: the cover, slide-by-slide copy and 1080×1350 files to upload.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting",
+        "png"
+      ],
+      "requires": [],
+      "example": "Turn my 7 pricing tips into a carousel",
+      "argumentHint": null,
+      "description": "Build an Instagram carousel - the cover that earns the swipe, slide-by-slide copy, and the 1080x1350 files to upload. Use when the user says \"carousel\", \"slides\", \"swipe post\", \"turn this into a carousel\", or has a list-shaped or step-shaped idea that would die as a single image.",
+      "path": "plugins/instagram-agent/skills/ig-carousel/SKILL.md"
+    },
+    {
+      "name": "ig-comment",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Writes comments on other people's posts that read like a person with an opinion, not a bot.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Write a comment for this post from a designer I follow",
+      "argumentHint": null,
+      "description": "Write comments on other people's Instagram posts and reels that read as a person with an opinion, not a bot. Use when the user pastes a post or a reel and wants a comment, says \"comment on this\", \"engage with this\", \"what do I say here\", or wants a batch for their daily engagement round.",
+      "path": "plugins/instagram-agent/skills/ig-comment/SKILL.md"
+    },
+    {
+      "name": "ig-dm",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Writes Instagram DMs that get replies: keyword delivery, first messages, collab pitches and follow-ups.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Pitch a collab to this skincare brand",
+      "argumentHint": null,
+      "description": "Write Instagram DMs that get replies - the keyword delivery, the first message to someone who engaged, the collab pitch, and the two follow-ups. Use when the user says \"DM this person\", \"what do I send them\", \"outreach message\", \"how do I follow up\", \"pitch this brand\", or is reaching out to someone specific.",
+      "path": "plugins/instagram-agent/skills/ig-dm/SKILL.md"
+    },
+    {
+      "name": "ig-human",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Strips AI tells from any draft (em dashes, slop words, hidden characters) and scores it against a five-check detection panel.",
+      "tags": [
+        "copywriting",
+        "anti-slop",
+        "social-media"
+      ],
+      "requires": [],
+      "example": "Does this caption sound like AI? Fix it",
+      "argumentHint": null,
+      "description": "Strip the machine fingerprint out of any draft - em dashes, AI slop words, invisible watermark characters - and score it against a five-check detection panel before it goes out. Use whenever text needs to sound human, when the user says humanize, \"does this sound like AI\", \"remove the em dashes\", \"de-slop this\", \"this sounds like ChatGPT\", or before any caption, script, comment, reply or DM is shown to the user.",
+      "path": "plugins/instagram-agent/skills/ig-human/SKILL.md"
+    },
+    {
+      "name": "ig-plan",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Plans the week on Instagram: what to post, in which format, when, and who to engage with.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "planning"
+      ],
+      "requires": [],
+      "example": "Plan my Instagram week around the product launch",
+      "argumentHint": null,
+      "description": "Build the week on Instagram - what to post, which format, when, and who to engage with. Use when the user says \"plan my week\", \"what should I post\", \"content calendar\", \"I have nothing to post about\", or wants a posting schedule and an engagement list.",
+      "path": "plugins/instagram-agent/skills/ig-plan/SKILL.md"
+    },
+    {
+      "name": "ig-profile",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Scores an Instagram profile out of 100 and rewrites the name field, bio, link, highlights and pinned posts.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "audit",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Score my profile and fix my bio",
+      "argumentHint": null,
+      "description": "Score an Instagram profile out of 100 against a 12-part rubric and rewrite the parts that lose points - name field, bio, link, highlights, pinned three, grid. Use when the user says \"optimize my profile\", \"fix my bio\", \"score my Instagram\", \"why don't people follow me\", or pastes their profile and asks how it reads.",
+      "path": "plugins/instagram-agent/skills/ig-profile/SKILL.md"
+    },
+    {
+      "name": "ig-reel",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Writes a Reel from a raw idea: scored hook options, spoken script, on-screen text and a timed beat sheet in your voice.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "video-scripts",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Make a reel about why most budgets fail",
+      "argumentHint": null,
+      "description": "Write an Instagram Reel from a raw idea - hook options off 26 formulas, the spoken script, the on-screen text, and a timed beat sheet - in the user's own voice and scored before they shoot it. Use whenever the user wants a Reel, a short-form video script, a hook, a voiceover, \"make a reel about X\", \"what should I say in this video\", or is about to record and does not have the first line yet.",
+      "path": "plugins/instagram-agent/skills/ig-reel/SKILL.md"
+    },
+    {
+      "name": "ig-reply",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Drafts replies to comments on your own posts, sorted by which ones are worth answering.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "requires": [],
+      "example": "Reply to these comments on my last reel",
+      "argumentHint": null,
+      "description": "Handle the comments under the user's own reels and posts - draft replies to the ones worth answering, sorted by which ones are. Use when the user pastes their comments, says \"reply to these\", \"handle my comments\", \"someone said X on my reel\", or is dealing with a critic, a hater or a lead in the comments.",
+      "path": "plugins/instagram-agent/skills/ig-reply/SKILL.md"
+    },
+    {
+      "name": "ig-repurpose",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Turns one long asset (video, podcast, newsletter, call) into a week of reels and carousels.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "video-scripts",
+        "planning"
+      ],
+      "requires": [],
+      "example": "Turn this podcast transcript into a week of reels",
+      "argumentHint": null,
+      "description": "Turn one long asset - a YouTube video, podcast, livestream, newsletter, blog post or client call - into a week of reels and carousels. Use when the user says \"repurpose this\", \"turn this into reels\", \"I have a video/podcast/ transcript\", \"cut this up\", or pastes something long and wants it on Instagram.",
+      "path": "plugins/instagram-agent/skills/ig-repurpose/SKILL.md"
+    },
+    {
+      "name": "ig-story",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Writes the day's Stories: a frame-by-frame sequence, which stickers to use, and the frame that moves people to DMs.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting",
+        "planning"
+      ],
+      "requires": [],
+      "example": "Story sequence to sell my workshop without a post",
+      "argumentHint": null,
+      "description": "Write the day's Instagram Stories - the frame-by-frame sequence, which stickers to use where, and the one that moves people into the DMs. Use when the user says \"stories\", \"what do I post on my story\", \"story sequence\", \"poll idea\", \"I have nothing to story about\", or wants to sell something without making a post about it.",
+      "path": "plugins/instagram-agent/skills/ig-story/SKILL.md"
+    },
+    {
+      "name": "ig-viral",
+      "plugin": "instagram-agent",
+      "category": "Social media",
+      "summary": "Finds reels working right now in your niche, ranks them by how far they beat their account, and builds a swipe file.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "research",
+        "analytics"
+      ],
+      "requires": [],
+      "example": "Find what's going viral in home-cooking reels this week",
+      "argumentHint": null,
+      "description": "Go and find the reels that are actually working right now in the user's niche, rank them by how far each beat its own account, name the hook formula each one used, and turn that into a swipe file they can shoot from. Use when the user says \"find viral videos\", \"what's working right now\", \"what are people posting in my niche\", \"reverse engineer this account\", \"build me a swipe file\", \"why is this reel doing numbers\", or asks what to make next and has no evidence to answer with.",
+      "path": "plugins/instagram-agent/skills/ig-viral/SKILL.md"
+    },
+    {
+      "name": "impeccable",
+      "plugin": "impeccable",
+      "category": "UI design",
+      "summary": "Shapes, critiques, audits, polishes and animates frontends and design systems through 24 commands with built-in anti-pattern checks.",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "design-system",
+        "audit",
+        "animation",
+        "anti-slop"
+      ],
+      "requires": [],
+      "example": "/impeccable audit src/pages/pricing",
+      "argumentHint": "[shape · audit|critique · animate|bolder|colorize|delight|layout|overdrive|quieter|typeset · adapt|clarify|distill · harden|onboard|optimize|polish · init|document|extract|live|generate] [target]",
+      "description": "Use to design, redesign, critique, audit, polish or animate a frontend: websites, landing pages, dashboards, app UI, components, native iOS/Android screens, or a design system (DESIGN.md).",
+      "path": "plugins/impeccable/skills/impeccable/SKILL.md"
     }
   ]
 };

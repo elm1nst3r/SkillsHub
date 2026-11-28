@@ -15,17 +15,30 @@ const marketplace = readJSON('.claude-plugin/marketplace.json');
 const curated = readJSON('catalog/skills.json');
 const knownTags = new Set(Object.values(curated.tagGroups).flat());
 
-// Minimal YAML frontmatter reader: top-level `key: value` pairs, quoted or plain.
+// Minimal YAML frontmatter reader: top-level `key: value` pairs, quoted, plain,
+// or block scalars (`|`, `>`, with optional `-`/`+`) and indented continuations.
 function frontmatter(text) {
   const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return {};
+  const lines = m[1].split(/\r?\n/);
   const out = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+  for (let i = 0; i < lines.length; i++) {
+    const kv = lines[i].match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
     if (!kv) continue;
     let v = kv[2].trim();
-    if (v.startsWith('"')) { try { v = JSON.parse(v); } catch { v = v.slice(1, -1); } }
-    else if (v.startsWith("'")) v = v.slice(1, -1).replace(/''/g, "'");
+    const cont = [];
+    while (i + 1 < lines.length && (/^\s+\S/.test(lines[i + 1]) || lines[i + 1].trim() === '')) cont.push(lines[++i]);
+    if (/^[|>][-+]?$/.test(v)) {
+      const body = cont.map((l) => l.trim());
+      v = v[0] === '|' ? body.join('\n').trim() : body.join(' ').replace(/\s+/g, ' ').trim();
+    } else if (v.startsWith('"')) {
+      const full = [v, ...cont.map((l) => l.trim())].join(' ');
+      try { v = JSON.parse(full); } catch { v = full.replace(/^"|"$/g, ''); }
+    } else if (v.startsWith("'")) {
+      v = [v, ...cont.map((l) => l.trim())].join(' ').replace(/^'|'$/g, '').replace(/''/g, "'");
+    } else if (cont.length && v) {
+      v = [v, ...cont.map((l) => l.trim())].join(' ').trim();
+    }
     out[kv[1]] = v;
   }
   return out;

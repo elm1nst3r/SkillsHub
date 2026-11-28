@@ -1,0 +1,10 @@
+{
+  "name": "modern-web-guidance",
+  "description": "Keeps coding agents up to date with modern web platform best practices, plus a Manifest V3 Chrome extensions skill.",
+  "version": "1.0.2",
+  "author": { "name": "Google Chrome", "url": "https://github.com/GoogleChrome" },
+  "homepage": "https://developer.chrome.com/docs/modern-web-guidance",
+  "repository": "https://github.com/GoogleChrome/modern-web-guidance",
+  "license": "Apache-2.0",
+  "keywords": ["web", "css", "html", "accessibility", "performance", "chrome-extensions"]
+}

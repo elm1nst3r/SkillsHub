@@ -10,13 +10,20 @@
       "png",
       "video",
       "animation",
-      "interactive"
+      "interactive",
+      "markdown",
+      "xlsx",
+      "artifacts"
     ],
     "Kind": [
       "diagrams",
       "charts",
       "illustration",
-      "explainer"
+      "explainer",
+      "ui-design",
+      "guidance",
+      "copywriting",
+      "data"
     ],
     "Diagram types": [
       "architecture",
@@ -28,7 +35,8 @@
       "data-flow",
       "gantt",
       "org-chart",
-      "journey-map"
+      "journey-map",
+      "mind-map"
     ],
     "Inputs": [
       "mermaid",
@@ -36,18 +44,46 @@
       "excalidraw",
       "plantuml",
       "svg-import",
-      "codebase"
+      "codebase",
+      "csv",
+      "web-clipping",
+      "analytics"
+    ],
+    "Domain": [
+      "frontend",
+      "web-platform",
+      "react",
+      "css",
+      "accessibility",
+      "performance",
+      "browser-extensions",
+      "design-system",
+      "landing-page",
+      "spreadsheets",
+      "notes",
+      "obsidian",
+      "social-media",
+      "instagram",
+      "video-scripts"
     ],
     "Workflow": [
       "pull-request",
       "code-review",
       "code-analysis",
-      "branding"
+      "branding",
+      "audit",
+      "planning",
+      "research",
+      "publishing",
+      "templates",
+      "cli",
+      "automation"
     ],
     "Style": [
       "isometric",
       "editorial",
-      "line-art"
+      "line-art",
+      "anti-slop"
     ]
   },
   "skills": {
@@ -150,6 +186,300 @@
         "animation"
       ],
       "example": "Make a Wardley map of our platform in our brand colors"
+    },
+    "modern-web-guidance": {
+      "category": "Web development",
+      "summary": "Looks up current web platform best practices before writing HTML, CSS or client-side JS, and scans code for legacy patterns to modernize.",
+      "tags": [
+        "guidance",
+        "web-platform",
+        "frontend",
+        "css",
+        "accessibility",
+        "performance",
+        "cli"
+      ],
+      "example": "Build an accessible modal dialog with entry and exit animations"
+    },
+    "chrome-extensions": {
+      "category": "Web development",
+      "summary": "Builds, debugs and publishes Manifest V3 Chrome extensions, including Chrome Web Store submission and review fixes.",
+      "tags": [
+        "guidance",
+        "browser-extensions",
+        "web-platform",
+        "frontend",
+        "publishing"
+      ],
+      "example": "Make a Chrome extension that adds a side panel summarizing the page"
+    },
+    "defuddle": {
+      "category": "Notes & knowledge",
+      "summary": "Extracts clean Markdown from web pages with the Defuddle CLI, ready to save as notes.",
+      "tags": [
+        "web-clipping",
+        "markdown",
+        "notes",
+        "cli"
+      ],
+      "example": "Save this article as clean Markdown in my vault"
+    },
+    "json-canvas": {
+      "category": "Notes & knowledge",
+      "summary": "Creates and edits JSON Canvas (.canvas) files with nodes, edges and groups for mind maps and visual boards.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "mind-map",
+        "diagrams",
+        "flowchart"
+      ],
+      "example": "Turn these project notes into a canvas mind map"
+    },
+    "knap": {
+      "category": "Notes & knowledge",
+      "summary": "Renders Markdown notes from templates and JSON or CSV data with the Knap CLI, including batch generation.",
+      "tags": [
+        "markdown",
+        "templates",
+        "csv",
+        "notes",
+        "obsidian",
+        "cli",
+        "automation"
+      ],
+      "example": "Generate one note per row of books.csv with my book template"
+    },
+    "obsidian-bases": {
+      "category": "Notes & knowledge",
+      "summary": "Creates and edits Obsidian Bases (.base files): table, card and kanban views with filters, formulas and summaries.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "data",
+        "markdown"
+      ],
+      "example": "Make a base that lists all notes tagged #project as a kanban by status"
+    },
+    "obsidian-cli": {
+      "category": "Notes & knowledge",
+      "summary": "Reads, searches and manages notes, tasks and properties in an Obsidian vault through the Obsidian CLI, and helps with plugin development.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "cli",
+        "automation"
+      ],
+      "example": "Find all open tasks in my vault due this week"
+    },
+    "obsidian-headless": {
+      "category": "Notes & knowledge",
+      "summary": "Sets up and runs Obsidian Sync and Publish from a terminal, server or CI with Obsidian Headless.",
+      "tags": [
+        "obsidian",
+        "notes",
+        "publishing",
+        "cli",
+        "automation"
+      ],
+      "example": "Publish my vault's public folder from a GitHub Action"
+    },
+    "obsidian-markdown": {
+      "category": "Notes & knowledge",
+      "summary": "Writes Obsidian Flavored Markdown with wikilinks, embeds, callouts and properties.",
+      "tags": [
+        "obsidian",
+        "markdown",
+        "notes"
+      ],
+      "example": "Convert this doc into an Obsidian note with callouts and backlinks"
+    },
+    "hallmark": {
+      "category": "UI design",
+      "summary": "Designs new websites and pages that look made rather than generated, and can redesign or audit an existing page against AI-default patterns.",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "landing-page",
+        "anti-slop",
+        "audit",
+        "html"
+      ],
+      "example": "/hallmark a landing page for a ceramics studio"
+    },
+    "xlsx": {
+      "category": "Data",
+      "summary": "Reads, edits, creates and converts spreadsheets (.xlsx, .csv, .tsv) with formulas, formatting and charts.",
+      "tags": [
+        "spreadsheets",
+        "xlsx",
+        "csv",
+        "data",
+        "charts"
+      ],
+      "example": "Clean up this CSV and build a pivot summary with a chart in Excel"
+    },
+    "web-artifacts-builder": {
+      "category": "Web development",
+      "summary": "Builds complex multi-component claude.ai artifacts with React, Tailwind CSS and shadcn/ui, bundled to a single HTML file.",
+      "tags": [
+        "react",
+        "frontend",
+        "artifacts",
+        "html",
+        "interactive"
+      ],
+      "example": "Build a multi-page budgeting app artifact with routing"
+    },
+    "ig-audit": {
+      "category": "Social media",
+      "summary": "Reviews past posts and insights to show which reels worked, why, and what to stop making.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "analytics",
+        "audit"
+      ],
+      "example": "Here are my last 20 reels' stats. What's working?"
+    },
+    "ig-caption": {
+      "category": "Social media",
+      "summary": "Writes an Instagram caption that survives the “more” cut, with one ask, search terms and three hashtags, and lints it.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "example": "Caption this reel about my morning routine"
+    },
+    "ig-carousel": {
+      "category": "Social media",
+      "summary": "Builds an Instagram carousel: the cover, slide-by-slide copy and 1080×1350 files to upload.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting",
+        "png"
+      ],
+      "example": "Turn my 7 pricing tips into a carousel"
+    },
+    "ig-comment": {
+      "category": "Social media",
+      "summary": "Writes comments on other people's posts that read like a person with an opinion, not a bot.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "example": "Write a comment for this post from a designer I follow"
+    },
+    "ig-dm": {
+      "category": "Social media",
+      "summary": "Writes Instagram DMs that get replies: keyword delivery, first messages, collab pitches and follow-ups.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "example": "Pitch a collab to this skincare brand"
+    },
+    "ig-human": {
+      "category": "Social media",
+      "summary": "Strips AI tells from any draft (em dashes, slop words, hidden characters) and scores it against a five-check detection panel.",
+      "tags": [
+        "copywriting",
+        "anti-slop",
+        "social-media"
+      ],
+      "example": "Does this caption sound like AI? Fix it"
+    },
+    "ig-plan": {
+      "category": "Social media",
+      "summary": "Plans the week on Instagram: what to post, in which format, when, and who to engage with.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "planning"
+      ],
+      "example": "Plan my Instagram week around the product launch"
+    },
+    "ig-profile": {
+      "category": "Social media",
+      "summary": "Scores an Instagram profile out of 100 and rewrites the name field, bio, link, highlights and pinned posts.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "audit",
+        "copywriting"
+      ],
+      "example": "Score my profile and fix my bio"
+    },
+    "ig-reel": {
+      "category": "Social media",
+      "summary": "Writes a Reel from a raw idea: scored hook options, spoken script, on-screen text and a timed beat sheet in your voice.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "video-scripts",
+        "copywriting"
+      ],
+      "example": "Make a reel about why most budgets fail"
+    },
+    "ig-reply": {
+      "category": "Social media",
+      "summary": "Drafts replies to comments on your own posts, sorted by which ones are worth answering.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting"
+      ],
+      "example": "Reply to these comments on my last reel"
+    },
+    "ig-repurpose": {
+      "category": "Social media",
+      "summary": "Turns one long asset (video, podcast, newsletter, call) into a week of reels and carousels.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "video-scripts",
+        "planning"
+      ],
+      "example": "Turn this podcast transcript into a week of reels"
+    },
+    "ig-story": {
+      "category": "Social media",
+      "summary": "Writes the day's Stories: a frame-by-frame sequence, which stickers to use, and the frame that moves people to DMs.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "copywriting",
+        "planning"
+      ],
+      "example": "Story sequence to sell my workshop without a post"
+    },
+    "ig-viral": {
+      "category": "Social media",
+      "summary": "Finds reels working right now in your niche, ranks them by how far they beat their account, and builds a swipe file.",
+      "tags": [
+        "instagram",
+        "social-media",
+        "research",
+        "analytics"
+      ],
+      "example": "Find what's going viral in home-cooking reels this week"
+    },
+    "impeccable": {
+      "category": "UI design",
+      "summary": "Shapes, critiques, audits, polishes and animates frontends and design systems through 24 commands with built-in anti-pattern checks.",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "design-system",
+        "audit",
+        "animation",
+        "anti-slop"
+      ],
+      "example": "/impeccable audit src/pages/pricing"
     }
   }
 }
